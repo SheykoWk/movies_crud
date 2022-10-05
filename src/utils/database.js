@@ -8,5 +8,4 @@ const db = new Sequelize({
     database: 'movies_crud'
 })
 
-
 module.exports = db

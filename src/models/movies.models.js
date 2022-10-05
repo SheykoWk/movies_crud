@@ -10,7 +10,7 @@ const Movies = db.define('movies', {
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
     },
     genre: {
         type: DataTypes.STRING,
@@ -27,4 +27,11 @@ const Movies = db.define('movies', {
     }
 })
 
-module.exports = Movies
+module.exports = Movies //Export default
+
+module.exports = {
+    createUser,
+    getAllUsers
+}
+
+
