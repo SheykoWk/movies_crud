@@ -1,8 +1,16 @@
 const express = require('express');
 
+const db = require('./utils/database')
+
 const app = express()
 
 const port = 8000
+
+db.authenticate()
+    .then(() => console.log('DB Authentication Succesfully') )
+    .catch((err) => console.log(err))
+
+
 
 app.use(express.json())
 

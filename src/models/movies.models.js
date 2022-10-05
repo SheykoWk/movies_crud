@@ -6,7 +6,7 @@ const Movies = db.define('movies', {
     id: {
         primaryKey: true,
         type: DataTypes.UUID,
-        allowNull: false
+        allowNull: false //? not null
     },
     name: {
         type: DataTypes.STRING,
