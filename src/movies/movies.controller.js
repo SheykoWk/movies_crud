@@ -33,4 +33,12 @@ createMovie({
     .then(response => console.log(response))
     .catch(err => console.log(err))
 
-
+const getMovieById = async (id) => {
+    const data = await Movies.findOne({
+        where: {
+            id
+        }
+    });
+    //? Select * from movies where id = id;
+    return data
+}
