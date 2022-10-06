@@ -29,9 +29,5 @@ const Movies = db.define('movies', {
 
 module.exports = Movies //Export default
 
-module.exports = {
-    createUser,
-    getAllUsers
-}
 
 

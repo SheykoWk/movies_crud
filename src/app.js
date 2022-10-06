@@ -2,10 +2,9 @@ const express = require('express');
 
 const db = require('./utils/database')
 const initModels = require('./models/initModels')
+const config = require('./config')
 
 const app = express()
-
-const port = 8000
 
 db.authenticate()
     //? Accion Informativa de si las credenciales son correctas
@@ -27,6 +26,6 @@ app.get('/', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`Server started at port ${port}`)
+app.listen(config.port, () => {
+    console.log(`Server started at port ${config.port}`)
 })
