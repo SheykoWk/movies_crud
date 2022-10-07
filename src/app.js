@@ -3,6 +3,7 @@ const express = require('express');
 const db = require('./utils/database')
 const initModels = require('./models/initModels')
 const config = require('./config')
+const moviesRouter = require('./movies/movies.router')
 
 const app = express()
 
@@ -23,6 +24,8 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.status(200).json({message: 'OK!'})
 })
+
+app.use('/movies', moviesRouter)
 
 
 
