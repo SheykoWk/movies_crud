@@ -1,4 +1,3 @@
-
 const  uuid = require('uuid')
 const Movies = require('../models/movies.models')
 
@@ -24,21 +23,32 @@ const createMovie = async (data) => {
     return newMovie
 }
 
-createMovie({
-    name: 'Pacific Rim',
-    genre: 'Action, SciFi',
-    duration: 120,
-    releaseDate: '2012/10/30'
-})
-    .then(response => console.log(response))
-    .catch(err => console.log(err))
+// createMovie({
+//     name: 'Pacific Rim',
+//     genre: 'Action, SciFi',
+//     duration: 120,
+//     releaseDate: '2012/10/30'
+// })
+//     .then(response => console.log(response))
+//     .catch(err => console.log(err))
 
 const getMovieById = async (id) => {
     const data = await Movies.findOne({
         where: {
             id
-        }
+        },
     });
     //? Select * from movies where id = id;
     return data
 }
+// getMovieById('8d8d45e6-a25a-4496-828b-c4f3c8183cab')
+//     .then((response) => console.log(response))
+//     .catch((err) => console.log(err))
+
+module.exports = {
+    getAllMovies,
+    getMovieById,
+    createMovie
+}
+
+
