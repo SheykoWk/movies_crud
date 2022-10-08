@@ -31,7 +31,11 @@ const getMovieById = (req, res) => {
 
     moviesControllers.getMovieById(id)
         .then(data => {
+          if(data){
             res.status(200).json(data)
+          }else {
+            res.status(404).json({message: 'Invalid ID'})
+          }
         })
         .catch(err => {
             res.status(404).json({message: err.message})
@@ -43,10 +47,15 @@ const patchMovie = (req, res) => {
   const {name, genre, duration, releaseDate} = req.body;
 
   moviesControllers.editMovie(id, {name, genre, duration, releaseDate})
-    .then(() => {
-      res.status(200).json({
-        message: `Movie with id: ${id}, edited succesfully!`
-      })
+    .then((response) => {
+      //? [0]
+      if(response[0]){
+        res.status(200).json({
+          message: `Movie with id: ${id}, edited succesfully!`
+        })
+      } else {
+        res.status(400).json({message: 'Invalid ID'})
+      }
     })
     .catch(error => {
       res.status(400).json({message: error.message})
