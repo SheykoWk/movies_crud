@@ -63,6 +63,25 @@ const patchMovie = (req, res) => {
 }
 
 
+//? youtube.com/videos/57
+//? youtube.com/videos/:video_id/comments/:comment_id
+//? const {video_id, comment_id} = req.params
+
+
+const deleteMovie = (req, res) => {
+  const id = req.params.id
+  moviesControllers.deleteMovie(id)
+    .then((response) => {
+      if(response){
+        res.status(204).json()
+      }else{
+        res.status(400).json({message: 'Invalid ID'})
+      }
+    })
+    .catch(err=> {
+      res.status(400).json(err)
+    })
+}
 
 
 
@@ -73,5 +92,6 @@ module.exports = {
     getAllMovies,
     getMovieById,
     postMovie,
-    patchMovie
+    patchMovie,
+    deleteMovie
 }

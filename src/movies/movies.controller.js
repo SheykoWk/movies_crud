@@ -41,13 +41,11 @@ const getMovieById = async (id) => {
   //? Select * from movies where id = id;
   return data; //? Si el where no encuentra nada, retorna null
 };
-getMovieById('8d8d45e6-a25a-4497-828b-c4f3c8183cab')
-    .then((response) => console.log(response))
-    .catch((err) => console.log(err))
+// getMovieById('8d8d45e6-a25a-4497-828b-c4f3c8183cab')
+//     .then((response) => console.log(response))
+//     .catch((err) => console.log(err))
 
-{
-  title: "Nuevo titulo";
-}
+
 
 const editMovie = async (id, data) => {
   const response = await Movies.update(data, {
@@ -70,9 +68,20 @@ const editMovie = async (id, data) => {
 //     console.log(err);
 //   });
 
+const deleteMovie = async (id) => {
+    const data = await Movies.destroy({
+        where: {
+            id: id
+        }
+    })
+    return data
+}
+
+
 module.exports = {
   getAllMovies,
   getMovieById,
   createMovie,
-  editMovie
+  editMovie,
+  deleteMovie
 };
