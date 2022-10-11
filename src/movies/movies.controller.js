@@ -51,7 +51,6 @@ const editMovie = async (id, data) => {
   const response = await Movies.update(data, {
     where: {
       id: id,
-      name: 'Pacific Rim'
     },
   });
   return response;//? Si el where no encuentra nada, retorna null
